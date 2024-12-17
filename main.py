@@ -1,4 +1,4 @@
-import random
+import creator
 
 from flask import Flask, render_template
 
@@ -10,9 +10,15 @@ CONTACT = "+380731570901"
 
 
 @app.get("/")
-def index():
-    numbers = [random.randint(0, 100) for _ in range(10)]
-    return render_template("index.html", contact=CONTACT, numbers=numbers)
+def show_pizzas():
+    pizzas = creator.get_Pizzas()
+    pizza_name1 = pizzas[0]
+    pizza_name2 = pizzas[1]
+    context = {
+        "title": "Список працівників",
+        "pizzas": pizzas
+    }
+    return render_template("index.html", **context)
 
 
 @app.get('/results-ababagalamaga/')
