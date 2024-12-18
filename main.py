@@ -11,14 +11,15 @@ CONTACT = "+380731570901"
 
 @app.get("/")
 def show_pizzas():
-    pizzas = creator.get_Pizzas()
-    pizza_name1 = pizzas[0]
-    pizza_name2 = pizzas[1]
-    context = {
-        "title": "Меню",
-        "pizzas": pizzas
-    }
-    return render_template("index.html", **context)
+    pizzas_db = creator.get_Pizzas()
+    pizzas = []
+
+    for pizza in pizzas_db:
+        pizzas.append(
+            {"name": pizza[1], "price": pizza[2]}
+        )
+
+    return render_template("index.html", pizzas=pizzas)
 
 
 @app.get('/results-ababagalamaga/')
