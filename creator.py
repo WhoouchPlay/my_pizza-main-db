@@ -13,7 +13,7 @@ def get_Pizzas() -> list:
         data = cursor.fetchall()
         cursor.close()
 
-        return cursor.execute(query).fetchall()
+        return data
     except sqlite3.Error as error:
         print(f"{error = }")
 
@@ -22,7 +22,6 @@ def get_Pizzas() -> list:
             sql_con.close()
             print("Робота з базою даних успішно завершена")
 
-        return data
 
 def insert_data(
         name: str,

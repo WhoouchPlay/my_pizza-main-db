@@ -19,7 +19,7 @@ def show_pizzas():
             {"name": pizza[1], "price": pizza[2]}
         )
 
-    return render_template("index.html", pizzas=pizzas)
+    return render_template("index.html", pizzas=pizzas_db, contact=CONTACT)
 
 
 @app.get('/results-ababagalamaga/')
