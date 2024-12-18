@@ -12,8 +12,8 @@ def get_Pizzas() -> list:
         cursor.execute(query)
         data = cursor.fetchall()
         cursor.close()
-        print("Дані успішно записані")
 
+        return cursor.execute(query).fetchall()
     except sqlite3.Error as error:
         print(f"{error = }")
 

@@ -15,7 +15,7 @@ def show_pizzas():
     pizza_name1 = pizzas[0]
     pizza_name2 = pizzas[1]
     context = {
-        "title": "Список працівників",
+        "title": "Меню",
         "pizzas": pizzas
     }
     return render_template("index.html", **context)
